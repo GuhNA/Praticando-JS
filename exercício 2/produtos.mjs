@@ -1,0 +1,16 @@
+export const produtos = [
+  { id: 1,  nome: "RTX 2060",         categoria: "Eletronicos", preco: 1300 },
+  { id: 2,  nome: "Notebook",         categoria: "Eletronicos", preco: 6000 },
+  { id: 3,  nome: "PC Gamer",         categoria: "Eletronicos", preco: 12000 },
+  { id: 4,  nome: 'Monitor 27"',      categoria: "Eletronicos", preco: 1850 },
+  { id: 5,  nome: "Teclado Mecânico", categoria: "Eletronicos", preco: 450 },
+  { id: 6,  nome: "Bicicleta",        categoria: "Esportes",    preco: 1200 },
+  { id: 7,  nome: "Bola",             categoria: "Esportes",    preco: 15 },
+  { id: 8,  nome: "Halteres 10kg",    categoria: "Esportes",    preco: 189.9 },
+  { id: 9,  nome: "Cafeteira",        categoria: "Casa",        preco: 320 },
+  { id: 10, nome: "Aspirador",        categoria: "Casa",        preco: 899.99 },
+  { id: 11, nome: "Luminária",        categoria: "Casa",        preco: 75.5 },
+  { id: 12, nome: "Clean Code",       categoria: "Livros",      preco: 132.4 },
+  { id: 13, nome: "Eloquent JS",      categoria: "Livros",      preco: 98 },
+  { id: 14, nome: "Refactoring",      categoria: "Livros",      preco: 245.9 },
+];
