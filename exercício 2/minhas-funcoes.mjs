@@ -1,3 +1,6 @@
+import {produtos} from './produtos.mjs';
+
+//{ quantidade, total, media, maisCaro, maisBarato, porCategoria }
 export function resumo(lista) {
   const result = lista.reduce((acc,e) =>{
     acc.quantidade++;
@@ -26,3 +29,5 @@ export function aplicarDesconto(lista, pct) {
           })
     )
 }
+
+console.log(resumo(produtos));
