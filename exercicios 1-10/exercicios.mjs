@@ -62,7 +62,33 @@ export function contarPorFaixa(lista) {
    `maisCaro` é a STRING com o nome do produto mais caro da categoria.
    `media` = total / quantidade da categoria. */
 export function estatisticasPorCategoria(lista) {
-  throw new Error("não implementada");
+    let preco = 0;
+    const novaLista = lista.reduce((acc,p) =>{
+      if(acc[p.categoria]){
+        acc[p.categoria].quantidade++;
+        acc[p.categoria].total += p.preco;
+        
+        if(preco < p.preco) {
+          acc[p.categoria].maisCaro = p.nome;
+          preco = p.preco
+        }
+      }
+      else{
+          acc[p.categoria] =
+           {
+            quantidade : 1,
+            maisCaro: p.nome,
+            total: p.preco,
+            media: 0
+          }
+        preco = p.preco;
+      }
+      return acc;
+    }, {})
+  for(const [,value] of Object.entries(novaLista))
+    value.media = value.total / value.quantidade;
+  
+  return novaLista;
 }
 
 /* 5 ─ atualizarPreco(lista, id, novoPreco)
@@ -93,9 +119,10 @@ export function removerPorId(lista, id) {
    Dica: "Luminária".normalize("NFD").replace(/\p{Diacritic}/gu, "") */
 export function buscar(lista, termo) {
     return lista.reduce((acc, p) => {
-      if(p["nome"].normalize("NFD").replace(/\p{Diacritic}/gu, "").toUpperCase() ===
-        termo.normalize("NFD").replace(/\p{Diacritic}/gu, "").toUpperCase()){ 
-        acc.push(p.nome);
+      if(p["nome"].normalize("NFD").replace(/\p{Diacritic}/gu, "").toUpperCase()
+        .includes(termo.normalize("NFD").replace(/\p{Diacritic}/gu, "").toUpperCase().trim())
+        || termo.trim() === ""){ 
+        acc.push(p);
       }
       return acc;
   }, [])
